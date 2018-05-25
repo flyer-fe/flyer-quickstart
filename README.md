@@ -5,14 +5,12 @@
 
 ## 基本用法
 
-> $ npm install -g vue-cli
+``` bash
+$ npm install -g vue-cli
+$ vue init mpvue/mpvue-quickstart my-project
+$ cd my-project
+$ npm install
+$ npm run dev
+```
 
-> $ vue init mpvue/mpvue-quickstart my-project
-
-> $ cd my-project
-
-> $ npm install
-
-> $ npm run dev
-
-### 更多详细文档请查阅
+更多详细文档请查阅
