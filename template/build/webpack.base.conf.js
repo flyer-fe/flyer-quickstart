@@ -22,9 +22,15 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       {{#if_eq build "standalone"}}
-      'vue$': 'vue/dist/vue.esm.js',
-      {{/if_eq}}
-      '@': resolve('src')
+      'vue': 'vue/dist/vue.esm.js',
+      'io': path.resolve(__dirname, '../src/common/io.js'),
+      'src': path.resolve(__dirname, '../src'),
+      'assets': path.resolve(__dirname, '../src/assets'),
+      'components': path.resolve(__dirname, '../src/components'),
+      'widget': path.resolve(__dirname, '../src/widget'),
+      'pages': path.resolve(__dirname, '../src/pages'),
+      'api': path.resolve(__dirname, '../src/api'),
+      'login': path.resolve(__dirname, '../src/login')
     }
   },
   module: {
@@ -67,5 +73,12 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  // 配置一些全局的pollyfill
+  plugins: [
+    new webpack.ProvidePlugin({
+      'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
+      'Promise': 'imports-loader?this=>global!exports-loader?global.Promise!es6-promise'
+    })
+  ]
 }
