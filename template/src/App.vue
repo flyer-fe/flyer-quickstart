@@ -26,7 +26,7 @@
 </template>
 
 <script>
-  {{/unless}}
+  {{#unless}}
   import XMenu from 'components/menu'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   import XMenuLogo from 'components/menu-logo'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   import XMenuItem from 'components/menu-item'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
@@ -167,6 +167,9 @@
   }
   .view {
     transition: all .5s cubic-bezier(.55,0,.1,1);
+  }
+  .pages-container {
+    
   }
 </style>
 
