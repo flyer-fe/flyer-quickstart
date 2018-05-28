@@ -26,11 +26,9 @@ const utils = {
   },
   /**
    * 对一个object进行深度拷贝
-   *
-   * @author berg
-   * @param {Object} source 需要进行拷贝的对象
    * 对于Object来说，只拷贝自身成员，不拷贝prototype成员
-   *
+   * 
+   * @param {Object} source 需要进行拷贝的对象
    * @returns {Object} 拷贝后的新对象
    */
   clone(source) {
@@ -57,10 +55,9 @@ const utils = {
   },
   /**
    * 判断一个对象是不是字面量对象，即判断这个对象是不是由{}或者new Object类似方式创建
-   *
-   * @name baidu.object.isPlain
-   * @param {Object} source 需要检查的对象
    * 事实上来说，在Javascript语言中，任何判断都一定会有漏洞，因此本方法只针对一些最常用的情况进行了判断
+   * 
+   * @param {Object} source 需要检查的对象
    * @returns {Boolean} 检查结果
    */
   isPlain(obj) {
@@ -93,6 +90,7 @@ const utils = {
   },
   /**
    * 创建flash对象的html字符串
+   * 
    * @param {Object}  options           创建flash的选项参数
    * @param {string}  options.id          要创建的flash的标识
    * @param {string}  options.url         flash文件的url
@@ -268,9 +266,8 @@ const utils = {
   },
   /**
    * 对目标字符串进行html编码
-   * 
-   * @param {string} source 目标字符串
    * 编码字符有5个：&<>"'
+   * @param {string} source 目标字符串
    * @returns {string} html编码后的字符串
    */
   encodeHTML: function (source) {
@@ -278,10 +275,9 @@ const utils = {
   },
   /**
    * 判断一个对象转化成URL query
-   *
-   * @name jianmin3
-   * @param {Object} json 被转换的json对象
-   * @returns {string} url query
+   * 
+   * @param {Object} json   被转换的json对象
+   * @returns {string}      url query
    */
   jsonToQueryString(json) {
     return Object.keys(json).map(key => {

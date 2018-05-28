@@ -50,7 +50,13 @@ function processResponse(handleError) {
   }
 }
 
-/* fetch的封装, 直接处理后端请求状态码 */
+/**
+ * fetch的封装, 直接处理后端请求状态码
+ * @param {*} url         接口url
+ * @param {*} params      请求参数
+ * @param {*} headers     请求头
+ * @param {*} handleError 错误处理状态码
+ */
 export function get(url, params = {}, headers = {}, handleError = 0) {
   let query = toQueryString(params)
   let fetchPromise = fetch(url + (query ? `?${query}` : ''), { headers, credentials: 'same-origin' })
@@ -78,6 +84,13 @@ export function get(url, params = {}, headers = {}, handleError = 0) {
     })
 }
 
+/**
+ * get请求
+ * @param {*} url         接口url
+ * @param {*} params      请求参数
+ * @param {*} headers     请求头
+ * @param {*} handleError 错误处理状态码
+ */
 export function post(url, params = {}, headers = {}, handleError = 0) {
   let body = toFormData(params)
   let fetchPromise = fetch(url, { method: 'POST', body: body, headers, credentials: 'same-origin' })
@@ -105,6 +118,13 @@ export function post(url, params = {}, headers = {}, handleError = 0) {
     })
 }
 
+/**
+ * post请求来下载文件
+ * @param {*} url         接口url
+ * @param {*} params      请求参数
+ * @param {*} headers     请求头
+ * @param {*} handleError 错误处理状态码
+ */
 export function download(url, params = {}, headers = {}, handleError = 0) {
   if (window.safari) {
     // 方法三 通用 但没有回调

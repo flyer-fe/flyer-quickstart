@@ -4,7 +4,9 @@
       <x-menu
         theme="dark"
         mode="horizontal"
+        {{#router}}
         router
+        {{/router}}
         style="border-radius: 0;">
         <!-- 导航菜单项 -->
         <!-- <x-menu-item index="/dynamic/dynamic">测试</x-menu-item> -->
