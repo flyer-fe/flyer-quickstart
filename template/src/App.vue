@@ -60,12 +60,12 @@
     created () {
     },
 
-    components: {{{#unless}}
+    components: {
+      {{#unless}}
       XMenu,
       XMenuLogo,
       XMenuItem,
-      XIcon
-      {{/unless}}
+      XIcon{{/unless}}
     },
 
     data () {
