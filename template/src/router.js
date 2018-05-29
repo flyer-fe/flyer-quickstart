@@ -6,9 +6,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
-{{#unless}}
-import MessageBox from 'components/message-box'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-{{/unless}}
+import MessageBox from 'components/message-box'
 
 const router = new VueRouter({
   // mode: 'history',
@@ -80,7 +78,6 @@ router.beforeEach((route, redirect, next) => {
   if (route.meta.needAuth) {
     authInterceptor(route, redirect, next)
   } else if (redirect.matched.some(m => m.meta.needConfirm) && !route.query.ignoreConfirm) {
-    {{#unless}}
     MessageBox.confirm(
       '页面未保存，确定离开此页面吗?',
       '提示',
@@ -96,7 +93,6 @@ router.beforeEach((route, redirect, next) => {
       .catch(() => {
         next(false)
       })
-    {{/unless}}
   } else {
     next()
   }
