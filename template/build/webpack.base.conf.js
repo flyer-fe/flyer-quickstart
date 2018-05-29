@@ -4,6 +4,17 @@ var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 var webpack = require('webpack')
 
+{{#lint}} const createLintingRule = () => ({
+  test: /\.(js|vue)$/,
+  loader: 'eslint-loader',
+  enforce: 'pre',
+  include: [resolve('src'), resolve('test')],
+  options: {
+    formatter: require('eslint-friendly-formatter'),
+    emitWarning: !config.dev.showEslintErrorsInOverlay
+  }
+}){{/lint}}
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -24,6 +35,7 @@ module.exports = {
     alias: {
       {{#if_eq build "standalone"}}
       'vue': 'vue/dist/vue.esm.js',
+      {{/if_eq}}
       'io': path.resolve(__dirname, '../src/common/io.js'),
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
@@ -37,15 +49,7 @@ module.exports = {
   module: {
     rules: [
       {{#lint}}
-      {
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },
+      ...(config.dev.useEslint ? [createLintingRule()] : []),
       {{/lint}}
       {
         test: /\.vue$/,
@@ -55,7 +59,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -63,6 +67,14 @@ module.exports = {
         options: {
           limit: 10000,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
+        }
+      },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: utils.assetsPath('media/[name].[hash:7].[ext]')
         }
       },
       {
@@ -81,5 +93,17 @@ module.exports = {
       'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
       'Promise': 'imports-loader?this=>global!exports-loader?global.Promise!es6-promise'
     })
-  ]
+  ],
+  node: {
+    // prevent webpack from injecting useless setImmediate polyfill because Vue
+    // source contains it (although only uses it if it's native).
+    setImmediate: false,
+    // prevent webpack from injecting mocks to Node native modules
+    // that does not make sense for the client
+    dgram: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+    child_process: 'empty'
+  }
 }
