@@ -7,6 +7,9 @@
         mode="horizontal"
         router
         style="border-radius: 0;">
+        <x-menu-logo index="http://xxx.com.cn">
+          <img class="logo" :src="logoSrc">
+        </x-menu-logo>
         <!-- 导航菜单项 -->
         <!-- <x-menu-item index="/dynamic/dynamic">测试</x-menu-item> -->
       </x-menu>
@@ -30,11 +33,11 @@
 </template>
 
 <script>
-  // {{#unless router}}
+  {{#router}}
   import XMenu from 'components/menu'
   import XMenuLogo from 'components/menu-logo'
   import XMenuItem from 'components/menu-item'
-  // {{/unless}}
+  {{/router}}
   import XIcon from 'components/icon'
 
   export default {
@@ -63,14 +66,16 @@
     },
 
     components: {
-      XIcon,
+      XIcon{{#router}},
       XMenu,
       XMenuLogo,
-      XMenuItem
+      XMenuItem{{/router}}
     },
 
     data () {
-      return {}
+      return {
+        logoSrc: require('assets/ka_logo.png'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      }
     }
   }
 </script>
