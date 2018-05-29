@@ -20,7 +20,9 @@
 
     <!-- 主体部分，内容将会塞进这里 -->
     <section class="main" ref="main">
-      <router-view class="view"></router-view>{{#router}}{{else}}
+      {{#router}}
+      <router-view class="view"></router-view>
+      {{else}}
       <HelloWorld><HelloWorld/>
       {{/router}}
     </section>
@@ -28,11 +30,9 @@
 </template>
 
 <script>
-  {{#unless router}}
   import XMenu from 'components/menu'
   import XMenuLogo from 'components/menu-logo'
   import XMenuItem from 'components/menu-item'
-  {{/unless}}
   import XIcon from 'components/icon'
 
   export default {
@@ -60,13 +60,12 @@
     created () {
     },
 
-    {{#unless}}
     components: {
       XMenu,
       XMenuLogo,
       XMenuItem,
       XIcon
-    }{{/unless}},
+    },
 
     data () {
       return {}
