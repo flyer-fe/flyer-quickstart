@@ -1,16 +1,16 @@
 <template>
   <div class="stage">
     <div class="header">
+      {{#router}}
       <x-menu
         theme="dark"
         mode="horizontal"
-        {{#router}}
         router
-        {{/router}}
         style="border-radius: 0;">
         <!-- 导航菜单项 -->
         <!-- <x-menu-item index="/dynamic/dynamic">测试</x-menu-item> -->
       </x-menu>
+      {{/router}}
       <!-- 右上角用户信息，惯用布局，你懂的 -->
       <!-- <div class="user">
         <span style="padding-left: 14px;">{{userName}}</span>
