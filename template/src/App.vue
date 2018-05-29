@@ -20,20 +20,20 @@
 
     <!-- 主体部分，内容将会塞进这里 -->
     <section class="main" ref="main">
-      {{#router}}
-      <router-view class="view"></router-view>
+      <router-view class="view"></router-view>{{#router}}{{else}}
+      <HelloWorld><HelloWorld/>
       {{/router}}
     </section>
   </div>
 </template>
 
 <script>
-  {{#unless}}
+  // {{#unless}}
   import XMenu from 'components/menu'
   import XMenuLogo from 'components/menu-logo'
   import XMenuItem from 'components/menu-item'
   import XIcon from 'components/icon'
-  {{/unless}}
+  // {{/unless}}
 
   export default {
     name: 'app',
@@ -61,11 +61,10 @@
     },
 
     components: {
-      {{#unless}}
       XMenu,
       XMenuLogo,
       XMenuItem,
-      XIcon{{/unless}}
+      XIcon
     },
 
     data () {
