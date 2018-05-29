@@ -29,10 +29,10 @@
 
 <script>
   {{#unless}}
-  import XMenu from 'components/menu'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  import XMenuLogo from 'components/menu-logo'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  import XMenuItem from 'components/menu-item'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  import XIcon from 'components/icon'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  import XMenu from 'components/menu'
+  import XMenuLogo from 'components/menu-logo'
+  import XMenuItem from 'components/menu-item'
+  import XIcon from 'components/icon'
   {{/unless}}
 
   export default {
@@ -60,11 +60,12 @@
     created () {
     },
 
-    components: {
-      XMenu{{#if_eq lintConfig "airbnb"}},{{/if_eq}},
-      XMenuLogo{{#if_eq lintConfig "airbnb"}},{{/if_eq}},
-      XMenuItem{{#if_eq lintConfig "airbnb"}},{{/if_eq}},
-      XIcon{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    components: {{{#unless}}
+      XMenu,
+      XMenuLogo,
+      XMenuItem,
+      XIcon
+      {{/unless}}
     },
 
     data () {
