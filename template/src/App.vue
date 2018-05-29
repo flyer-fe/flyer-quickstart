@@ -30,11 +30,11 @@
 </template>
 
 <script>
-  {{#unless router}}
+  // {{#unless router}}
   import XMenu from 'components/menu'
   import XMenuLogo from 'components/menu-logo'
   import XMenuItem from 'components/menu-item'
-  {{/unless}}
+  // {{/unless}}
   import XIcon from 'components/icon'
 
   export default {
@@ -63,10 +63,10 @@
     },
 
     components: {
-      XIcon{{#unless}},
+      XIcon,
       XMenu,
       XMenuLogo,
-      XMenuItem{{/unless}}
+      XMenuItem
     },
 
     data () {
