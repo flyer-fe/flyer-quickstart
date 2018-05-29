@@ -28,12 +28,12 @@
 </template>
 
 <script>
-  // {{#unless}}
+  {{#unless router}}
   import XMenu from 'components/menu'
   import XMenuLogo from 'components/menu-logo'
   import XMenuItem from 'components/menu-item'
+  {{/unless}}
   import XIcon from 'components/icon'
-  // {{/unless}}
 
   export default {
     name: 'app',
@@ -60,12 +60,13 @@
     created () {
     },
 
+    {{#unless}}
     components: {
       XMenu,
       XMenuLogo,
       XMenuItem,
       XIcon
-    },
+    }{{/unless}},
 
     data () {
       return {}
