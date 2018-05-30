@@ -5,6 +5,7 @@ if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 }
 
+var fs = require('fs')
 var opn = require('opn')
 var path = require('path')
 var express = require('express')
@@ -40,6 +41,29 @@ compiler.plugin('compilation', function (compilation) {
     cb()
   })
 })
+
+// mock數據中間件
+var mockMiddleware = function (req, res, next) {
+  // 对于referer没有ed参数的请求不处理
+  if (!/[?&](?:ed|mock)\b/i.test(req.headers.referer)) {
+    next()
+    return
+  }
+  var url = req.baseUrl + (req.path === '/' ? '' : req.path)
+  var mock = path.join(__dirname, '../mock/' + url + '.js')
+  if (fs.existsSync(mock)) {
+    delete require.cache[mock]
+    var data = require(mock)
+    res.writeHead(200, {
+      'Content-Type': 'application/json'
+    })
+    res.end(JSON.stringify(data))
+  } else {
+    next()
+  }
+}
+// 先请求本地mock数据
+app.use('/ka/', mockMiddleware)
 
 // proxy api requests
 Object.keys(proxyTable).forEach(function (context) {
