@@ -74,7 +74,7 @@
 
     data () {
       return {
-        logoSrc: require('assets/ka_logo.png'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+        logoSrc: require('assets/ogo.png'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       }
     }
   }
@@ -127,7 +127,8 @@
   }
   .logo {
     padding-top: 6px;
-    width: 200px;
+    width: 35px;
+    height: 35px;
     display: inline-block;
   }
   .user {
