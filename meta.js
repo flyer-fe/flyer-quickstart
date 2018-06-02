@@ -136,7 +136,7 @@ module.exports = {
     ui: {
       when: 'isNotTest',
       type: 'list',
-      message: '请选择所要依赖的UI库',
+      message: '请选择所要依赖的UI库（目前只支持element-ui）',
       choices: [
         {
           name: 'element-ui',
@@ -162,7 +162,7 @@ module.exports = {
         'Should we run `npm install` for you after the project has been created? (recommended)',
       choices: [
         {
-          name: 'Yes, use NPM',
+          name: 'Yes, use NPM, 国内运行npm容易卡死，可以退出后使用cnpm安装',
           value: 'npm',
           short: 'npm',
         },

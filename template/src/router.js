@@ -6,7 +6,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
-import MessageBox from 'components/message-box'
+{{#if_eq ui "element-ui"}}
+import { MessageBox } from 'element-ui'
+{{/if_eq}}
 
 const router = new VueRouter({
   // mode: 'history',
@@ -78,6 +80,7 @@ router.beforeEach((route, redirect, next) => {
   if (route.meta.needAuth) {
     authInterceptor(route, redirect, next)
   } else if (redirect.matched.some(m => m.meta.needConfirm) && !route.query.ignoreConfirm) {
+    {{#if_eq ui "element-ui"}}
     MessageBox.confirm(
       '页面未保存，确定离开此页面吗?',
       '提示',
@@ -93,6 +96,7 @@ router.beforeEach((route, redirect, next) => {
       .catch(() => {
         next(false)
       })
+    {{/if_eq}}
   } else {
     next()
   }
