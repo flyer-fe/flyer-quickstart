@@ -133,6 +133,23 @@ module.exports = {
       type: 'confirm',
       message: 'Setup e2e tests with Nightwatch?',
     },
+    ui: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: '选择所要依赖的UI库',
+      choices: [
+        {
+          name: 'element-ui',
+          value: 'element-ui',
+          short: 'element-ui',
+        },
+        {
+          name: 'quasar',
+          value: 'quasar',
+          short: 'quasar',
+        }
+      ]
+    },
     autoInstall: {
       when: 'isNotTest',
       type: 'list',
@@ -155,7 +172,7 @@ module.exports = {
           short: 'no',
         },
       ],
-    },
+    }
   },
   filters: {
     '.eslintrc.js': 'lint',

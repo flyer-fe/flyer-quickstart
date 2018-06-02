@@ -15,8 +15,9 @@
   },
   "dependencies": {
     "async-validator": "^1.8.1",
-    "component-dom": "github:component/dom",
-    "element-ui": "^2.4.0",
+    "component-dom": "github:component/dom"{{#ui element-ui}},
+    "element-ui": "^2.4.0"{{else}},
+    "quasar": "^0.0.18"{{/ui}},
     "file-saver": "^1.3.3",
     "html-withimg-loader": "^0.1.16",
     "lodash.debounce": "^4.0.8",
