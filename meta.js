@@ -136,7 +136,7 @@ module.exports = {
     ui: {
       when: 'isNotTest',
       type: 'list',
-      message: '选择所要依赖的UI库',
+      message: '请选择所要依赖的UI库',
       choices: [
         {
           name: 'element-ui',
@@ -147,7 +147,12 @@ module.exports = {
           name: 'quasar',
           value: 'quasar',
           short: 'quasar',
-        }
+        },
+        {
+          name: 'No, I will handle that myself',
+          value: 'none',
+          short: 'none',
+        },
       ]
     },
     autoInstall: {
