@@ -135,7 +135,7 @@ module.exports = {
     },
     ui: {
       when: 'isNotTest',
-      type: 'confirm',
+      type: 'list',
       message: '选择所要依赖的UI库',
       choices: [
         {
