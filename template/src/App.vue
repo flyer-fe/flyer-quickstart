@@ -39,7 +39,8 @@
     computed: {
     },
 
-    watch: {{{#router}}
+    watch: {
+      {{#router}}
       '$route': {
         immediate: true,
         handler (to, from) {
