@@ -1,7 +1,6 @@
 <template>
   <div class="stage">
-    <div class="header">
-      {{#router}}{{#if_eq ui "element-ui"}}
+    <div class="header">{{#router}}{{#if_eq ui "element-ui"}}
       <x-menu
         theme="dark"
         mode="horizontal"
@@ -12,8 +11,7 @@
         </x-menu-logo>
         <!-- 导航菜单项 -->
         <!-- <x-menu-item index="/dynamic/dynamic">测试</x-menu-item> -->
-      </x-menu>
-      {{/if_eq}}{{/router}}
+      </x-menu>{{/if_eq}}{{/router}}
       <!-- 右上角用户信息，惯用布局，你懂的 -->
       <!-- <div class="user">
         <span style="padding-left: 14px;">{{userName}}</span>
@@ -22,12 +20,9 @@
     </div>
 
     <!-- 主体部分，内容将会塞进这里 -->
-    <section class="main" ref="main">
-      {{#router}}
-      <router-view class="view"></router-view>
-      {{else}}{{#if_eq ui "element-ui"}}
-      <HelloWorld><HelloWorld/>
-      {{/if_eq}}{{/router}}
+    <section class="main" ref="main">{{#router}}
+      <router-view class="view"></router-view>{{else}}{{#if_eq ui "element-ui"}}
+      <HelloWorld><HelloWorld/>{{/if_eq}}{{/router}}
     </section>
   </div>
 </template>
@@ -36,25 +31,21 @@
   {{#router}}{{#if_eq ui "element-ui"}}
   import XMenu from 'components/menu'
   import XMenuLogo from 'components/menu-logo'
-  import XMenuItem from 'components/menu-item'
-  {{/if_eq}}{{/router}}{{#if_eq ui "element-ui"}}
-  import XIcon from 'components/icon'
-  {{/if_eq}}
-
+  import XMenuItem from 'components/menu-item'{{/if_eq}}{{/router}}{{#if_eq ui "element-ui"}}
+  import XIcon from 'components/icon'{{/if_eq}}
+  
   export default {
     name: 'app',
     computed: {
     },
 
-    watch: {
-      {{#router}}
+    watch: {{{#router}}
       '$route': {
         immediate: true,
         handler (to, from) {
           // this.activePath = to.path
         }
-      }
-      {{/router}}
+      }{{/router}}
     },
 
     methods: {
