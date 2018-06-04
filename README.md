@@ -1,7 +1,7 @@
 
 # flyer-quickstart
 
-> 大前端项目通用的模板，快速入门, fork 自 vuejs-templates/webpack修改而来
+> 大前端项目通用的模板, fork 自 vuejs-templates/webpack 修改而来
 
 ## 基本用法
 
