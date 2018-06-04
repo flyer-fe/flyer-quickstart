@@ -27,8 +27,7 @@
   </div>
 </template>
 
-<script>
-  {{#router}}{{#if_eq ui "element-ui"}}
+<script>{{#router}}{{#if_eq ui "element-ui"}}
   import XMenu from 'components/menu'
   import XMenuLogo from 'components/menu-logo'
   import XMenuItem from 'components/menu-item'{{/if_eq}}{{/router}}{{#if_eq ui "element-ui"}}

@@ -4,9 +4,8 @@
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-Vue.use(VueRouter)
+Vue.use(VueRouter){{#if_eq ui "element-ui"}}
 
-{{#if_eq ui "element-ui"}}
 import { MessageBox } from 'element-ui'
 {{/if_eq}}
 
@@ -95,8 +94,9 @@ router.beforeEach((route, redirect, next) => {
       })
       .catch(() => {
         next(false)
-      })
-    {{/if_eq}}
+      }){{else}}
+      // 执行一些逻辑
+      {{/if_eq}}
   } else {
     next()
   }
