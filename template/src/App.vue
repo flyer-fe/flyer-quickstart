@@ -66,7 +66,7 @@
 
     data () {
       return {
-        logoSrc: require('assets/ogo.png'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+        logoSrc: require('assets/logo.png'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       }
     }
   }
