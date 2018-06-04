@@ -1,7 +1,7 @@
 <template>
   <div class="stage">
     <div class="header">
-      {{#router}}
+      {{#router}}{{#if_eq ui "element-ui"}}
       <x-menu
         theme="dark"
         mode="horizontal"
@@ -13,7 +13,7 @@
         <!-- 导航菜单项 -->
         <!-- <x-menu-item index="/dynamic/dynamic">测试</x-menu-item> -->
       </x-menu>
-      {{/router}}
+      {{/if_eq}}{{/router}}
       <!-- 右上角用户信息，惯用布局，你懂的 -->
       <!-- <div class="user">
         <span style="padding-left: 14px;">{{userName}}</span>
@@ -25,20 +25,21 @@
     <section class="main" ref="main">
       {{#router}}
       <router-view class="view"></router-view>
-      {{else}}
+      {{else}}{{#if_eq ui "element-ui"}}
       <HelloWorld><HelloWorld/>
-      {{/router}}
+      {{/if_eq}}{{/router}}
     </section>
   </div>
 </template>
 
 <script>
-  {{#router}}
+  {{#router}}{{#if_eq ui "element-ui"}}
   import XMenu from 'components/menu'
   import XMenuLogo from 'components/menu-logo'
   import XMenuItem from 'components/menu-item'
-  {{/router}}
+  {{/if_eq}}{{/router}}{{#if_eq ui "element-ui"}}
   import XIcon from 'components/icon'
+  {{/if_eq}}
 
   export default {
     name: 'app',
@@ -66,10 +67,10 @@
     },
 
     components: {
-      XIcon{{#router}},
+      XIcon{{#router}}{{#if_eq ui "element-ui"}},
       XMenu,
       XMenuLogo,
-      XMenuItem{{/router}}
+      XMenuItem{{/if_eq}}{{/router}}
     },
 
     data () {
