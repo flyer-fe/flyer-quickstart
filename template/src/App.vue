@@ -79,7 +79,7 @@
   }
 </script>
 
-<style>{{#if_eq ui "sina-ui"}}
+<style>
   ::-webkit-scrollbar {
     width: 6px;
     height: 8px;
@@ -177,5 +177,5 @@
   .view {
     transition: all .5s cubic-bezier(.55,0,.1,1);
   }
-  .pages-container {}{{/if_eq}}
+  .pages-container {}
 </style>
