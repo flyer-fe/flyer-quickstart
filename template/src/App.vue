@@ -1,6 +1,6 @@
 <template>
   <div class="stage">
-    <div class="header">{{#router}}{{#if_eq ui "element-ui"}}
+    <div class="header">{{#router}}{{#if_eq ui "sina-ui"}}
       <x-menu
         theme="dark"
         mode="horizontal"
@@ -72,7 +72,8 @@
 
     data () {
       return {
-        logoSrc: require('assets/logo.png')
+        {{#if_eq ui "sina-ui"}}
+        logoSrc: require('assets/logo.png'){{/if_eq}}
       }
     }
   }
