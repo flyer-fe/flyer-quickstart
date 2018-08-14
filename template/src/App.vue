@@ -76,9 +76,9 @@
       }
     }
   }
-</script>
+</script>{{#if_eq ui "sina-ui"}}
 
-<style>{{#if_eq ui "element-ui"}}
+<style>
   ::-webkit-scrollbar {
     width: 6px;
     height: 8px;
@@ -178,5 +178,6 @@
   }
   .pages-container {
 
-  }{{/if_eq}}
-</style>
+  }
+  
+</style>{{/if_eq}}
