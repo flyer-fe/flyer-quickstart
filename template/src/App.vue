@@ -37,7 +37,7 @@
 <script>{{#router}}{{#if_eq ui "sina-ui"}}
   import XMenuLogo from 'components/menu-logo'
   import XMenu from 'components/menu'
-  import XMenuItem from 'components/menu-item'{{/if_eq}}
+  import XMenuItem from 'components/menu-item'{{/if_eq}}{{/router}}
 
   export default {
     name: 'app',
