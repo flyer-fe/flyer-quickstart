@@ -4,10 +4,7 @@
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-Vue.use(VueRouter){{#if_eq ui "element-ui"}}
-
-import { MessageBox } from 'element-ui'
-{{/if_eq}}
+Vue.use(VueRouter)
 
 const router = new VueRouter({
   // mode: 'history',

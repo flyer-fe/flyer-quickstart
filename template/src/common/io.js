@@ -6,7 +6,6 @@
  */
 
 import moment from 'moment'
-import MessageBox from 'components/message-box'
 
 function toQueryString(params) {
   let query = []

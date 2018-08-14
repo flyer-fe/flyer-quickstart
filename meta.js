@@ -136,7 +136,7 @@ module.exports = {
     ui: {
       when: 'isNotTest',
       type: 'list',
-      message: '请选择所要依赖的UI库（目前只支持element-ui）',
+      message: '请选择项目所要依赖的UI库（暂不支持 quasar）',
       choices: [
         {
           name: 'element-ui',
@@ -147,6 +147,11 @@ module.exports = {
           name: 'quasar',
           value: 'quasar',
           short: 'quasar',
+        },
+        {
+          name: 'sina-ui (初始化完成后，手动copy组件库)',
+          value: 'sina-ui',
+          short: 'sina-ui',
         },
         {
           name: 'No, I will handle that myself',

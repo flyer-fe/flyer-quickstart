@@ -11,7 +11,16 @@
         </x-menu-logo>
         <!-- 导航菜单项 -->
         <!-- <x-menu-item index="/dynamic/dynamic">测试</x-menu-item> -->
-      </x-menu>{{/if_eq}}{{/router}}
+      </x-menu>{{/if_eq}}{{#if_eq ui "element-ui"}}
+      <menu
+        theme="dark"
+        mode="horizontal"
+        router
+        style="border-radius: 0;">
+        <!-- 导航菜单项 -->
+        <menu-item index="/index">测试</menu-item>
+      </menu>
+      {{/if_eq}}{{/router}}
       <!-- 右上角用户信息，惯用布局，你懂的 -->
       <!-- <div class="user">
         <span style="padding-left: 14px;">{{userName}}</span>
@@ -21,18 +30,16 @@
 
     <!-- 主体部分，内容将会塞进这里 -->
     <section class="main" ref="main">{{#router}}
-      <router-view class="view"></router-view>{{else}}{{#if_eq ui "element-ui"}}
-      <HelloWorld><HelloWorld/>{{/if_eq}}{{/router}}
+      <router-view class="view"></router-view>{{/router}}
     </section>
   </div>
 </template>
 
-<script>{{#router}}{{#if_eq ui "element-ui"}}
-  import XMenu from 'components/menu'
+<script>{{#router}}{{#if_eq ui "sina-ui"}}
   import XMenuLogo from 'components/menu-logo'
-  import XMenuItem from 'components/menu-item'{{/if_eq}}{{/router}}{{#if_eq ui "element-ui"}}
-  import XIcon from 'components/icon'{{/if_eq}}
-  
+  import XMenu from 'components/menu'
+  import XMenuItem from 'components/menu-item'{{/if_eq}}
+
   export default {
     name: 'app',
     computed: {
@@ -58,7 +65,7 @@
     },
 
     components: {
-      XIcon{{#router}}{{#if_eq ui "element-ui"}},
+      {{#router}}{{#if_eq ui "sina-ui"}}
       XMenu,
       XMenuLogo,
       XMenuItem{{/if_eq}}{{/router}}
@@ -72,7 +79,7 @@
   }
 </script>
 
-<style>
+<style>{{#if_eq ui "sina-ui"}}
   ::-webkit-scrollbar {
     width: 6px;
     height: 8px;
@@ -170,8 +177,7 @@
   .view {
     transition: all .5s cubic-bezier(.55,0,.1,1);
   }
-  .pages-container {
-    
-  }
+  .pages-container {}
+  {{/if_eq}}
 </style>
 
