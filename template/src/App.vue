@@ -19,8 +19,7 @@
         style="border-radius: 0;">
         <!-- 导航菜单项 -->
         <menu-item index="/index">测试</menu-item>
-      </menu>
-      {{/if_eq}}{{/router}}
+      </menu>{{/if_eq}}{{/router}}
       <!-- 右上角用户信息，惯用布局，你懂的 -->
       <!-- <div class="user">
         <span style="padding-left: 14px;">{{userName}}</span>
@@ -73,13 +72,13 @@
 
     data () {
       return {
-        logoSrc: require('assets/logo.png'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+        logoSrc: require('assets/logo.png')
       }
     }
   }
 </script>
 
-<style>
+<style>{{#if_eq ui "element-ui"}}
   ::-webkit-scrollbar {
     width: 6px;
     height: 8px;
@@ -179,5 +178,5 @@
   }
   .pages-container {
 
-  }
+  }{{/if_eq}}
 </style>
