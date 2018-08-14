@@ -177,6 +177,5 @@
   .view {
     transition: all .5s cubic-bezier(.55,0,.1,1);
   }
-  .pages-container {}
-  {{/if_eq}}
+  .pages-container {}{{/if_eq}}
 </style>
