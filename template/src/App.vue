@@ -12,14 +12,14 @@
         <!-- 导航菜单项 -->
         <!-- <x-menu-item index="/dynamic/dynamic">测试</x-menu-item> -->
       </x-menu>{{/if_eq}}{{#if_eq ui "element-ui"}}
-      <menu
+      <el-menu
         theme="dark"
         mode="horizontal"
         router
         style="border-radius: 0;">
         <!-- 导航菜单项 -->
-        <menu-item index="/index">测试</menu-item>
-      </menu>{{/if_eq}}{{/router}}
+        <el-menu-item index="/index">测试</el-menu-item>
+      </el-menu>{{/if_eq}}{{/router}}
       <!-- 右上角用户信息，惯用布局，你懂的 -->
       <!-- <div class="user">
         <span style="padding-left: 14px;">{{userName}}</span>
@@ -79,7 +79,7 @@
   }
 </script>
 
-<style>
+<style>{{#if_eq ui "sina-ui"}}
   ::-webkit-scrollbar {
     width: 6px;
     height: 8px;
@@ -179,5 +179,5 @@
   }
   .pages-container {
 
-  }
+  }{{/if_eq}}
 </style>
